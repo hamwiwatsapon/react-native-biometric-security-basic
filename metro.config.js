@@ -1,7 +1,11 @@
-// Learn more https://docs.expo.io/guides/customizing-metro
-const { getDefaultConfig } = require('expo/metro-config');
+// metro.config.js
+const { getDefaultConfig } = require('@expo/metro-config');
 
-/** @type {import('expo/metro-config').MetroConfig} */
 const config = getDefaultConfig(__dirname);
+
+// Safely modify config properties directly
+config.resolver.assetExts.push('svg');
+config.transformer.experimentalImportSupport = false;
+config.transformer.inlineRequires = false;
 
 module.exports = config;
